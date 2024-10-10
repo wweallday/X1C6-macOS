@@ -1,73 +1,83 @@
-# macOS for ThinkPad X1 Carbon 6th Gen [20KG] (Janaury 14, 2024)
+# macOS for ThinkPad X1 Carbon 6th Gen [20KG] (Updated: Oct 10, 2024)
+
 ![X1C6](https://psrefstuff.lenovo.com/syspool//Sys/Image/ThinkPad/ThinkPad_X1_Carbon_6th_Gen/ThinkPad_X1_Carbon_6th_Gen_CT1_09.png)
 
-This project is to give the X1C6 a complete and functional build of macOS Sonoma `14.2.1` using the guide from  [here](https://github.com/tylernguyen/x1c6-hackintosh) with modified ACPI and updated kexts.
+This project provides a complete and functional macOS Ventura `13.7` build for the ThinkPad X1 Carbon 6th Gen (model 20KG). It is based on the excellent guides from [tylernguyen](https://github.com/tylernguyen/x1c6-hackintosh) and [Rybo713](https://github.com/Rybo713/X1C6-macOS), with modified ACPI patches and updated kexts.
 
-Using `MacbookPro15,2` SMBIOS
+### Future Plans
+I plan to modify the BIOS on the X1 Carbon Gen 6 once I receive my **CH341a SPI Programmer** and **SOIC8 Clip**. Updates on the BIOS modification process will be added as this progresses.
 
-## My Specs
-**Model:** X1C6 [20KG]
+- Using SMBIOS: `MacBookPro15,2`
+- Bootloader: OpenCore v1.0.1
 
-**Bios:** 1.60 Vanilla
+## System Specifications
 
-**CPU:** 2.11GHz Intel i7-8650U (0x8086)
+| Component   | Details                                     |
+|-------------|---------------------------------------------|
+| **Model**   | X1 Carbon 6th Gen [20KG]                    |
+| **CPU**     | i5-8350U                                    |
+| **GPU**     | Intel UHD620 1536MB (0x5916)                |
+| **RAM**     | 2133MHz 16GB LPDDR3                         |
+| **Display** | 14" IPS FHD Anti-Glare (1920x1080, 60Hz)    |
+| **Storage** | 256GB Kioxia BG5 (2280)                     |
+| **Wi-Fi**   | Intel Wireless AX210NGW                     |
+| **Bluetooth**| Intel Wireless AX210NGW                    |
 
-**GPU:** Intel UHD620 1536MB (0x5916)
+## Important Notes
 
-**RAM:** 2133MHz Samsung 16GB Dual Channel LPDDR3
+Your X1 Carbon may not have the exact specifications listed above, and your results may vary. If you need assistance or run into issues, feel free to ask for help.
 
-**Display:** 14" IPS Anti-Glare FHD Non-Touch, 1920x1080, 60Hz
+## Tested macOS Versions
 
-**Storage:** PCI-E x4 NVMe WD SN730 512GB
+- **macOS Ventura**: 13.7 (22H123)
 
-**Partition Type:** APFS
+## Functional Features
 
-**Wifi:** Intel Wireless AX210NGW
+The following features are confirmed working:
 
-**Bluetooth:** Intel Wireless AX210NGW
+- **Audio**
+- **Keyboard**, including brightness control
+- **Power Management** via CPUFriend
+- **Battery Management**
+- **USB-A Ports**
+- **Trackpad** (with full gesture support)
+- **Trackpoint**
+- **Webcam**
+- **Microphone**
+- **Display Brightness Control**
+- **Sleep / Wake**
+- **Wi-Fi** (using [itlwm](https://github.com/OpenIntelWireless/itlwm))
+- **Bluetooth** (using [IntelBluetoothFirmware](https://openintelwireless.github.io/IntelBluetoothFirmware/FAQ.html#what-additional-steps-should-i-do-to-make-bluetooth-work-on-macos-monterey-and-newer))
+- **HDMI** (with patches from [tylernguyen](https://tylernguyen.github.io/x1c6-hackintosh/))
+- **All FN Keys** ([patch tutorial](https://github.com/MSzturc/ThinkpadAssistant) and [Thinkpad Assistant app](https://github.com/MSzturc/ThinkpadAssistant/releases))
 
-**Bootloader:** OpenCore v0.9.7
+## Known Issues & Untested Features
 
-## Note
-Your laptop may or may not have the exact specs as mine. Results may vary. If you need help, please ask.
+- **Fingerprint Sensor / Touch ID**: Will never work (disabled in BIOS)
+- **Thunderbolt 3**: Untested
+- **microSD Card Reader**: Untested
+- **USB-C Ports**: Untested
 
-## Tested Configurations
-- macOS 14.2.1
-- BIOS 1.60
+## Bugs & Fixes
 
-# What Works
-- Audio
-- Headphone Jack
-- Keyboard
-- Keyboard Brightness
-- Power Management (CPUFriend)
-- Battery Manager
-- USB A Ports
-- USB C Ports
-- Trackpad, with full gestures
-- Trackpoint
-- Webcam
-- Microphone
-- Display Brightness (Have to set it in Keyboard Shortcuts in System Settings)
-- Sleep / Wake
-- Wifi - Use Heliport v1.5.0 or else KP when using stock wifi settings (airport.d)
-- Bluetooth
+- **Boot Loop After Installation (Recovery Issue)**:
+  - If you encounter a boot loop after installation from recovery, follow [this guide](https://www.reddit.com/r/hackintosh/comments/17r9cy4/boot_loop_after_first_phase_of_install_after/) for a fix.
+  - **Quick Fix (TL;DR):** Temporarily disable Apple Secure Boot in `config.plist`:  
+    Navigate to `Misc -> Security -> SecureBootModel`, and set it to **Disabled** (case-sensitive).  
+    Once the installation is complete, you can re-enable Secure Boot by setting it back to **Default**.
 
-# What doesn't work / Haven't tested
-- Fingerprint sensor - Touch ID (It will never work) (Disabled in BIOS)
-- HDMI - Haven't Tested
-- Thunderbolt 3 - Haven't Tested
-- microSD Card Reader - Haven't Tested
-- All FN Keys - F7-F12 doesn't do anything
-  
-# Bugs
-- ?
+## Pre-Installation Instructions
 
-# Pre-Installation
-1. Follow tylernguyen's [guide](https://tylernguyen.github.io/x1c6-hackintosh/).
-2. Generate SMBIOS for `MacbookPro15,2`
+1. Follow tylernguyen's detailed [installation guide](https://tylernguyen.github.io/x1c6-hackintosh/).
+2. Generate an appropriate SMBIOS using `MacBookPro15,2`.
 
 ## Credits
-- tylernguyen https://github.com/tylernguyen/x1c6-hackintosh
-- benbender https://github.com/benbender/x1c6-hackintosh
-- zhtengw https://github.com/zhtengw/EFI-for-X1C6-hackintosh
+
+Special thanks to the following contributors for their invaluable resources:
+
+- [tylernguyen](https://github.com/tylernguyen/x1c6-hackintosh)
+- [benbender](https://github.com/benbender/x1c6-hackintosh)
+- [zhtengw](https://github.com/zhtengw/EFI-for-X1C6-hackintosh)
+- [Rybo713](https://github.com/Rybo713/X1C6-macOS)
+
+---
