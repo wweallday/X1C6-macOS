@@ -1,6 +1,6 @@
 # macOS for ThinkPad X1 Carbon 6th Gen [20KG] (Updated: Oct 10, 2024)
 
-![X1C6](https://psrefstuff.lenovo.com/syspool//Sys/Image/ThinkPad/ThinkPad_X1_Carbon_6th_Gen/ThinkPad_X1_Carbon_6th_Gen_CT1_09.png)
+![X1C6](image/thinkpad.jpg)
 
 This project provides a complete and functional macOS Ventura `13.7` build for the ThinkPad X1 Carbon 6th Gen (model 20KG). It is based on the excellent guides from [tylernguyen](https://github.com/tylernguyen/x1c6-hackintosh) and [Rybo713](https://github.com/Rybo713/X1C6-macOS), with modified ACPI patches and updated kexts.
 
