@@ -66,6 +66,27 @@ The following features are confirmed working:
     Navigate to `Misc -> Security -> SecureBootModel`, and set it to **Disabled** (case-sensitive).  
     Once the installation is complete, you can re-enable Secure Boot by setting it back to **Default**.
 
+- **Apple Music Playback Issue**:
+  - While Apple Music plays correctly through the internal audio, it's worth noting that the X1 Carbon's built-in speakers may not provide the best sound quality. A preferable option would be to use Bluetooth headphones. However, some users may experience issues with Apple Music not playing properly on Bluetooth devices, potentially due to DRM-related factors.
+
+  **Workaround for Bluetooth Playback**
+    To resolve skipping issues when using Apple Music over Bluetooth, follow these steps:
+
+    1. Open **Apple Music** and go to **Preferences > Playback**.
+    2. Uncheck the options for **Lossless Audio** and **Dolby Atmos**. These features can cause playback issues, likely due to DRM restrictions.
+    3. Open **Audio MIDI Setup** (located in the Utilities folder).
+    4. Click the (+) button and select **Create Multi-Output Device**.
+    5. Name the new device as you prefer, then enable your Bluetooth device in the audio device list.
+
+- **HDMI Monitor Connection Issue**:
+  - When connecting the X1 Carbon to a 144Hz monitor via HDMI, you might encounter a problem where the monitor continuously connects and disconnects. This issue is typically caused by the system defaulting to a 60Hz refresh rate.
+
+  **Solution**
+  - To resolve this, manually set the refresh rate to **120Hz**:
+    1. Go to **System Settings > Displays**.
+    2. Select the external monitor and adjust the refresh rate to **120Hz**.
+  
+    After making this adjustment, the connection stabilize, and the monitor will work normally.
 ## Pre-Installation Instructions
 
 1. Follow tylernguyen's detailed [installation guide](https://tylernguyen.github.io/x1c6-hackintosh/).
